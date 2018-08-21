@@ -20,7 +20,7 @@ namespace Library
             LifeTimeEnd?.Invoke(this, alamStruct);
         }
 
-        AlamStruct AlamStruct = new AlamStruct();
+        AlamStruct AlamStruct;
 
         public Alam(AlamStruct alam)
         {
