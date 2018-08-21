@@ -58,7 +58,9 @@ namespace Library
             int v_X = Form.Size.Width;
             for (int i = 0; i < AlamList.Count; i++)
             {
-                AlamList[i].Location = new Point(0, Form.Size.Height - ((i + 1) * v_Y));
+                if (AlamList[i].Location.Y != Form.Size.Height - ((i + 1) * v_Y))
+                    AlamList[i].Location = new Point(0, Form.Size.Height - ((i + 1) * v_Y));
+
                 AlamList[i].Size = new Size(Form.Size.Width, v_Y);
             }
         }
