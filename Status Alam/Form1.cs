@@ -25,7 +25,10 @@ namespace Status_Alam
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < 5; i++)
+            {
+                manage.Add(new AlamStruct("A" + i, "123412312", (i + 4)));
+            }
         }
     }
 }

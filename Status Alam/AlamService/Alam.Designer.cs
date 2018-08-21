@@ -113,6 +113,10 @@
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
             // Alam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);

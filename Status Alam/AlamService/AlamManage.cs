@@ -21,6 +21,7 @@ namespace Library
                 _Size = value;
                 ChangeFormSize();
                 ChangeDeskLocation();
+                ChangeControlLocation();
             }
         }
         private int _Size = 0;
@@ -51,12 +52,23 @@ namespace Library
             Rectangle pt = Screen.PrimaryScreen.WorkingArea;
             Form.SetDesktopLocation(pt.Width - this.Form.Width - _Padding.X, pt.Height - Form.Size.Height - _Padding.Y);
         }
+        private void ChangeControlLocation()
+        {
+            int v_Y = Size;
+            int v_X = Form.Size.Width;
+            for (int i = 0; i < AlamList.Count; i++)
+            {
+                AlamList[i].Location = new Point(0, Form.Size.Height - ((i + 1) * v_Y));
+                AlamList[i].Size = new Size(Form.Size.Width, v_Y);
+            }
+        }
         private void Remove(object sender, AlamStruct AlamStruct)
         {
             AlamList.Remove(sender as Alam);
 
             ChangeFormSize();
             ChangeDeskLocation();
+            ChangeControlLocation();
 
             (sender as Control).Dispose();
         }
@@ -69,19 +81,15 @@ namespace Library
 
         public void Add(AlamStruct AlamStruct)
         {
-            int v_Y = Size;
-            int v_X = Form.Size.Width;
-
             Alam alam = new Alam(AlamStruct);
             alam.LifeTimeEnd += Remove;
             AlamList.Add(alam);
             
-            for (int i = 0; i < AlamList.Count; i++)
-            {
-                AlamList[i].Location = new Point(0, Form.Size.Height - ((i + 1) * v_Y));
-                AlamList[i].Size = new Size(Form.Size.Width, v_Y);
-            }
             Form.Controls.Add(alam);
+
+            ChangeFormSize();
+            ChangeDeskLocation();
+            ChangeControlLocation();
         }
 
     }
@@ -90,7 +98,7 @@ namespace Library
 
     public class AlamStruct
     {
-        public AlamStruct(string Title, string Body, float LifeTime = 0.0f)
+        public AlamStruct(string Title, string Body, float LifeTime = -1.0f)
         {
             this.Title = Title;
             this.Body = Body;

@@ -48,6 +48,8 @@ namespace Library
 
             if (alam.borderStyle != Picture_Image.BorderStyle)
                 Picture_Image.BorderStyle = AlamStruct.borderStyle;
+
+            Timer.Start();
         }
 
         private void Panel_Main_Paint(object sender, PaintEventArgs e)
@@ -55,6 +57,17 @@ namespace Library
             var g = (sender as Control);
             float Size = 5;
             g.CreateGraphics().DrawRectangle(new Pen(Color.Chartreuse, Size), Size / 2, Size / 2, g.Size.Width - Size, g.Size.Height - Size);
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (AlamStruct.LifeTime == -1) return;
+            AlamStruct.LifeTime -= Timer.Interval / 1000.0f;
+            if (AlamStruct.LifeTime <= 0)
+            {
+                Timer.Stop();
+                OnLifeTimeEnd(AlamStruct);
+            }
         }
     }
 }
