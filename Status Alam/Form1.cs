@@ -20,6 +20,7 @@ namespace Status_Alam
             InitializeComponent();
 
             manage = new AlamManage(this);
+            manage.Size = 100;
             manage.Add(new AlamStruct("Hi", "Test"));
         }
 

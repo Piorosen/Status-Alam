@@ -69,5 +69,10 @@ namespace Library
                 OnLifeTimeEnd(AlamStruct);
             }
         }
+
+        private void Btn_Close_Click(object sender, EventArgs e)
+        {
+            OnLifeTimeEnd(AlamStruct);
+        }
     }
 }

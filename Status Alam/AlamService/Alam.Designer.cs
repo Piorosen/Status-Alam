@@ -34,7 +34,7 @@
             this.Picture_Image = new System.Windows.Forms.PictureBox();
             this.Label_Body = new System.Windows.Forms.Label();
             this.Label_Title = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Btn_Close = new System.Windows.Forms.Button();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.Panel_Main.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -48,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel_Main.BackColor = System.Drawing.Color.OldLace;
             this.Panel_Main.Controls.Add(this.panel1);
-            this.Panel_Main.Controls.Add(this.button1);
+            this.Panel_Main.Controls.Add(this.Btn_Close);
             this.Panel_Main.Location = new System.Drawing.Point(10, 10);
             this.Panel_Main.Margin = new System.Windows.Forms.Padding(0);
             this.Panel_Main.Name = "Panel_Main";
@@ -87,7 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label_Body.Location = new System.Drawing.Point(11, 33);
             this.Label_Body.Name = "Label_Body";
-            this.Label_Body.Size = new System.Drawing.Size(208, 109);
+            this.Label_Body.Size = new System.Drawing.Size(208, 114);
             this.Label_Body.TabIndex = 1;
             this.Label_Body.Text = "내용 : ";
             // 
@@ -99,19 +99,20 @@
             this.Label_Title.TabIndex = 0;
             this.Label_Title.Text = "제목 : ";
             // 
-            // button1
+            // Btn_Close
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.OldLace;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.OldLace;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(383, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
+            this.Btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Close.BackColor = System.Drawing.Color.OldLace;
+            this.Btn_Close.FlatAppearance.BorderColor = System.Drawing.Color.OldLace;
+            this.Btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Close.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Btn_Close.Location = new System.Drawing.Point(383, 8);
+            this.Btn_Close.Name = "Btn_Close";
+            this.Btn_Close.Size = new System.Drawing.Size(30, 30);
+            this.Btn_Close.TabIndex = 1;
+            this.Btn_Close.Text = "X";
+            this.Btn_Close.UseVisualStyleBackColor = false;
+            this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
             // 
             // Timer
             // 
@@ -136,7 +137,7 @@
         #endregion
 
         private System.Windows.Forms.Panel Panel_Main;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn_Close;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox Picture_Image;
         private System.Windows.Forms.Label Label_Body;
