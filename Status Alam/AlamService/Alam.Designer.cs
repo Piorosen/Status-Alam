@@ -95,7 +95,7 @@
             // 
             this.Label_Title.Location = new System.Drawing.Point(11, 11);
             this.Label_Title.Name = "Label_Title";
-            this.Label_Title.Size = new System.Drawing.Size(41, 12);
+            this.Label_Title.Size = new System.Drawing.Size(208, 12);
             this.Label_Title.TabIndex = 0;
             this.Label_Title.Text = "제목 : ";
             // 

@@ -36,7 +36,15 @@ namespace Library
                 Panel_Main.BackColor = AlamStruct.BackColor;
 
             if (alam.ImagePath != string.Empty && !(new FileInfo(alam.ImagePath).Exists))
+            {
                 Picture_Image.Image = Image.FromFile(AlamStruct.ImagePath);
+            }
+            else
+            {
+                Label_Title.Size = new Size(Label_Title.Size.Width + Picture_Image.Size.Width, Label_Title.Size.Height);
+                Label_Body.Size = new Size(Label_Body.Size.Width + Picture_Image.Size.Width, Label_Body.Size.Height);
+                Picture_Image.Size = new Size(0, 0);
+            }
 
             if (alam.borderStyle != Picture_Image.BorderStyle)
                 Picture_Image.BorderStyle = AlamStruct.borderStyle;
@@ -46,7 +54,7 @@ namespace Library
         {
             var g = (sender as Control);
             float Size = 5;
-            g.CreateGraphics().DrawRectangle(new Pen(Color.Beige, Size), Size / 2, Size / 2, g.Size.Width - Size, g.Size.Height - Size);
+            g.CreateGraphics().DrawRectangle(new Pen(Color.Chartreuse, Size), Size / 2, Size / 2, g.Size.Width - Size, g.Size.Height - Size);
         }
     }
 }
