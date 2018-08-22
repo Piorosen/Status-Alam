@@ -68,14 +68,28 @@ namespace Library
         private void Remove(object sender, AlamStruct AlamStruct)
         {
             AlamList.Remove(sender as Alam);
-            Form.Invoke(new MethodInvoker(() =>
+
+            try
+            {
+                Form.Invoke(new MethodInvoker(() =>
+                {
+                    ChangeFormSize();
+                    ChangeDeskLocation();
+                    ChangeControlLocation();
+
+                    (sender as Control).Dispose();
+                }));
+            }
+            catch (Exception)
             {
                 ChangeFormSize();
                 ChangeDeskLocation();
                 ChangeControlLocation();
 
                 (sender as Control).Dispose();
-            }));
+            }
+
+            
         }
 
         public AlamManage(Form _Form)
@@ -91,19 +105,30 @@ namespace Library
 
         public void Add(AlamStruct AlamStruct)
         {
-            AlamStruct.LifeTime /= 2.0f;
             Alam alam = new Alam(AlamStruct);
 
             alam.LifeTimeEnd += Remove;
             AlamList.Add(alam);
-            Form.Invoke(new MethodInvoker(() =>
+            try
+            {
+                Form.Invoke(new MethodInvoker(() =>
+                {
+                    Form.Controls.Add(alam);
+
+                    ChangeFormSize();
+                    ChangeDeskLocation();
+                    ChangeControlLocation();
+                }));
+            }
+            catch (Exception)
             {
                 Form.Controls.Add(alam);
 
                 ChangeFormSize();
                 ChangeDeskLocation();
                 ChangeControlLocation();
-            }));
+            }
+            
         }
 
     }
