@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Library
 {
-    class AlamManage
+    public class AlamManage
     {
         public int Size
         {
@@ -41,7 +41,7 @@ namespace Library
         private Point _Padding = new Point(30, 10);
         Form Form = null;
 
-        
+
         private void ChangeFormSize()
         {
             Form.Size = new Size(Form.Size.Width,
@@ -64,34 +64,46 @@ namespace Library
                 AlamList[i].Size = new Size(Form.Size.Width, v_Y);
             }
         }
+
         private void Remove(object sender, AlamStruct AlamStruct)
         {
             AlamList.Remove(sender as Alam);
+            Form.Invoke(new MethodInvoker(() =>
+            {
+                ChangeFormSize();
+                ChangeDeskLocation();
+                ChangeControlLocation();
 
-            ChangeFormSize();
-            ChangeDeskLocation();
-            ChangeControlLocation();
-
-            (sender as Control).Dispose();
+                (sender as Control).Dispose();
+            }));
         }
 
         public AlamManage(Form _Form)
         {
             Form = _Form;
             Size = 200;
+            Form.BackColor = Color.FromArgb(254, 254, 254);
+            Form.FormBorderStyle = FormBorderStyle.None;
+            Form.TransparencyKey = Color.FromArgb(254, 254, 254);
+            Form.ShowInTaskbar = false;
+            Form.TopMost = true;
         }
 
         public void Add(AlamStruct AlamStruct)
         {
+            AlamStruct.LifeTime /= 2.0f;
             Alam alam = new Alam(AlamStruct);
+
             alam.LifeTimeEnd += Remove;
             AlamList.Add(alam);
-            
-            Form.Controls.Add(alam);
+            Form.Invoke(new MethodInvoker(() =>
+            {
+                Form.Controls.Add(alam);
 
-            ChangeFormSize();
-            ChangeDeskLocation();
-            ChangeControlLocation();
+                ChangeFormSize();
+                ChangeDeskLocation();
+                ChangeControlLocation();
+            }));
         }
 
     }
@@ -126,10 +138,13 @@ namespace Library
         /// </summary>
         public Color BackColor { get; set; } = Color.Empty;
 
+        /// <summary>
+        /// 이미지 스타일 지정.
+        /// </summary>
         public BorderStyle borderStyle { get; set; } = BorderStyle.None;
 
         /// <summary>
-        /// 표기할 시간을 지정합니다. ( 0.0f => infinity )
+        /// 표기할 시간을 지정합니다. ( -1.0f => infinity )
         /// </summary>
         public float LifeTime { get; set; } = 0.0f;
 
