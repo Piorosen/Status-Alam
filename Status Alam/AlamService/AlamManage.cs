@@ -166,7 +166,7 @@ namespace Library
         /// <summary>
         /// 이미지 스타일 지정.
         /// </summary>
-        public BorderStyle borderStyle { get; set; } = BorderStyle.None;
+        public BorderStyle BorderStyle { get; set; } = BorderStyle.None;
 
         /// <summary>
         /// 표기할 시간을 지정합니다. ( -1.0f => infinity )

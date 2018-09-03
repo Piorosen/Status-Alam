@@ -48,8 +48,8 @@ namespace Library
                 }
             }
 
-            if (alam.borderStyle != Picture_Image.BorderStyle)
-                Picture_Image.BorderStyle = AlamStruct.borderStyle;
+            if (alam.BorderStyle != Picture_Image.BorderStyle)
+                Picture_Image.BorderStyle = AlamStruct.BorderStyle;
 
             Timer.Start();
         }
