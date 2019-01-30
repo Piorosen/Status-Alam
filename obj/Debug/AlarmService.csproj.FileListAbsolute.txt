@@ -1,0 +1,7 @@
+C:\Users\aoika\Desktop\git\Audio2Tag\AlarmService\bin\Debug\AlarmService.dll
+C:\Users\aoika\Desktop\git\Audio2Tag\AlarmService\bin\Debug\AlarmService.pdb
+C:\Users\aoika\Desktop\git\Audio2Tag\AlarmService\obj\Debug\Library.Alarm.resources
+C:\Users\aoika\Desktop\git\Audio2Tag\AlarmService\obj\Debug\AlarmService.csproj.GenerateResource.cache
+C:\Users\aoika\Desktop\git\Audio2Tag\AlarmService\obj\Debug\AlarmService.csproj.CoreCompileInputs.cache
+C:\Users\aoika\Desktop\git\Audio2Tag\AlarmService\obj\Debug\AlarmService.dll
+C:\Users\aoika\Desktop\git\Audio2Tag\AlarmService\obj\Debug\AlarmService.pdb
